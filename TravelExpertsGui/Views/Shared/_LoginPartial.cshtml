@@ -1,0 +1,21 @@
+﻿
+    @if (User.Identity.IsAuthenticated)
+    {
+            <a class="nav-link " asp-area="" asp-controller="Packages" asp-action="BookPackage">Packages</a>
+            <a class="nav-link " asp-area="" asp-controller="Bookings" asp-action="Index">My Bookings</a>
+    <form class="form-inline" asp-controller="Account" asp-action="Logout"
+      asp-route-returnUrl=@Url.Action("Index", "Account")>
+        <button type="submit" class="nav-link btn btn-link">Logout</button>
+    </form>
+            <a class="nav-link" asp-controller="Bookings" asp-action="Index">
+                Hello @User.Identity.Name
+            </a>
+            
+        
+    }
+    else
+    {
+            <a class="nav-link " asp-area="" asp-controller="Packages" asp-action="Index">Packages</a>
+            <a class="nav-link" asp-controller="Account" asp-action="Login">Login</a>
+            <a class="nav-link " asp-controller="Customers" asp-action="Create">Register</a>
+    }

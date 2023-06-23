@@ -1,0 +1,38 @@
+﻿@model IEnumerable<TravelExpertsData.Booking>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center m-5">My Bookings</h1>
+
+<div class="row justify-content-center mb-3">
+
+    @foreach (var item in Model)
+    {
+
+        <div class="card  col-md-4 m-md-5 shadow" @*style="width: 18rem;"*@>
+            
+            <div class="card-body ">
+                <h5 class="card-title my-2">@Html.DisplayNameFor(modelItem => item.BookingDate)</h5>
+                <h5 class="card-title my-2">@Html.DisplayFor(modelItem => item.BookingDate)</h5>
+                <h5 class="card-text">@Html.DisplayNameFor(modelItem => item.BookingNo)</h5>
+                <p class="card-text">@Html.DisplayFor(modelItem => item.BookingNo)</p>
+                <h5 class="card-text">@Html.DisplayNameFor(modelItem =>  item.TravelerCount)</h5>
+                <p class="card-text">@Html.DisplayFor(modelItem =>  item.TravelerCount)</p>
+                <h5 class="card-text">@Html.DisplayNameFor(modelItem =>  item.Customer.CustFirstName)</h5>
+                <p class="card-text">@Html.DisplayFor(modelItem =>  item.Customer.CustFirstName)</p>
+                <h5 class="card-text">@Html.DisplayNameFor(modelItem =>  item.Package.PkgName)</h5>
+                <p class="card-text">@Html.DisplayFor(modelItem =>  item.Package.PkgName)</p>
+                <h5 class="card-text">@Html.DisplayNameFor(modelItem =>  item.Package.PkgBasePrice)</h5>
+                <p class="card-text">@Html.DisplayFor(modelItem =>  item.Package.PkgBasePrice)</p>
+
+            </div>
+        </div>
+    }
+    <div class="card text-center">
+        <h2>Total Booking Cost</h2>
+        <div class="p-3">@ViewBag.TotalCost</div>
+
+    </div>
+    <a class="btn btn-outline-primary d-block" asp-action="BookPackage" asp-controller="Packages">Add Packages</a>

@@ -1,0 +1,53 @@
+﻿@model TravelExpertsData.Booking
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="text-center my-3">Booking</h1>
+
+<hr />
+<div class="row container mx-auto col-10 col-md-8 col-lg-6">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @*<label asp-for="BookingDate" class="control-label"></label>*@
+                <input type="hidden" value="@DateTime.Now" asp-for="BookingDate" class="form-control" />
+                <span asp-validation-for="BookingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="BookingNo" class="control-label"></label>*@
+                <input asp-for="BookingNo" type="hidden" value="@ViewBag.BookingNum" class="form-control" />
+                <span asp-validation-for="BookingNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelerCount" class="control-label"></label>
+                <input asp-for="TravelerCount" class="form-control" />
+                <span asp-validation-for="TravelerCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+        @*        <label asp-for="CustomerId" class="control-label"></label>*@
+                <input asp-for="CustomerId" class ="form-control" type="hidden" value="@ViewBag.CustomerId"/>
+            </div>
+            <div class="form-group">
+                <label asp-for="TripTypeId" class="control-label">Trip Type</label>
+                <select asp-for="TripTypeId" class="form-control" asp-items="ViewBag.TripType"></select>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="PackageId" class="control-label"></label>*@
+                <input asp-for="PackageId" type="hidden" class="form-control" value="@ViewBag.PackageId" />
+            </div>
+            
+            <div class="form-group my-2">
+                <input type="submit" value="Create" class="btn btn-primary d-block mx-auto" />
+            </div>
+            <div class="mt-5">
+                <a class="btn btn-outline-primary d-block mx-auto" asp-action="Index" asp-controller="Home">Back to Home</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

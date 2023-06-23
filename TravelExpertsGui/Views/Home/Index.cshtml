@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="landing justify-content-center row m-0">
+    <h1>Travel Experts</h1>
+  <div class="intro mb-5">
+        <h2 class="mb-3"><em>Click Sit-Back Experience</em></h2>
+        @if(User.Identity.Name != null)
+        {
+            <a asp-action="BookPackage" asp-controller="Packages" class="btn btn-outline-light ">Book A Package</a>
+        }
+        else
+        {
+            <a asp-action="Index" asp-controller="Packages" class="btn btn-outline-light ">Book A Package</a>
+        }
+    </div>
+</div>
